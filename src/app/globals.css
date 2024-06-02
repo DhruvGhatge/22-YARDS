@@ -31,7 +31,7 @@
       --destructive: 0 84.2% 60.2%;
       --destructive-foreground: 210 40% 98%;
 
-      
+
       --input: 214.3 31.8% 91.4%;
       --ring: 222.2 84% 4.9%;
 
@@ -40,21 +40,33 @@
     .menu{
       --border: 0%;
       border-width: 0px;
-      background-color: gold;
+      background-color:#ffee20;
     }
     .abc{
       --primary: 222.2 47.4% 11.2%;
-      
+
        color: rgb(83, 42, 122);
        border-radius: 10px;
-       background-color:gold;
+       background-color:#ffee20;
        display: flex;
        align-items: center;
        justify-content: space-between;
-       border-style: solid;
-       border-width: 5px;
        margin-left: 100px;
        margin-right: 100px;
+       height: 70px;
+    }
+
+    .signin{
+      border-radius: 50px;
+    }
+
+    .backgroundImage {
+     
+      margin-left: 120px;
+      margin-right: 120px;
+      height: 15vw;
+      background-size: cover; /* Optional: makes sure the image covers the div */
+      background-position: center; /* Optional: centers the image */
     }
 
     .dark {
