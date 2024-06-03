@@ -41,11 +41,12 @@
       --border: 0%;
       border-width: 0px;
       background-color:#ffee20;
+      
     }
     .abc{
       --primary: 222.2 47.4% 11.2%;
 
-       color: rgb(83, 42, 122);
+       color: black;
        border-radius: 10px;
        background-color:#ffee20;
        display: flex;
@@ -54,6 +55,7 @@
        margin-left: 100px;
        margin-right: 100px;
        height: 70px;
+       
     }
 
     .signin{
@@ -68,17 +70,30 @@
       background-size: cover; /* Optional: makes sure the image covers the div */
       background-position: center; /* Optional: centers the image */
       position: relative;
-      overflow: hidden;
+      
       display: flex;
+      box-shadow: 0 3px 25px #0000001a;
     }
 
     
       .overlay {
         position: relative;
         z-index: 1; /* Ensures the overlay image is on top */
-        margin-left: 20px; /* Adjust the spacing as needed */
-        height: 200px;
-        margin-top: 20px;
+        margin-left: 36px; /* Adjust the spacing as needed */
+        height: 150px;
+        margin-top: 40px;
+      }
+
+      .overlay-text {
+        position: absolute;
+        z-index: 1; /* Ensures the overlay image is on top */
+       
+       
+        
+        margin-left: 89px;
+    margin-top: 89px;
+    font-size: 35px;
+    color: white;
       }
     
 
@@ -90,6 +105,16 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
+    }
+
+    .menuitem{
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 120px;
+    margin-right: 120px;
+    box-shadow: 0 3px 25px #0000001a;
+    border-radius: 0px 0px 1.245vw 1.245vw;
     }
 
     .dark {

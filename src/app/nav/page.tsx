@@ -1,3 +1,6 @@
+import { LuArrowLeft } from "react-icons/lu";
+import { LuChevronDown } from "react-icons/lu";
+import Cards from '../nav/cards';
 import {
     Menubar,
     MenubarContent,
@@ -10,11 +13,13 @@ import {
   import { Button } from "@/components/ui/button"
 
 
-  export default function nevbar(){
+  export default function navbar(){
     return(
     <>
+    <title>my website</title>
+   
         <div className="abc">
-          <div style={{ marginLeft: '20px' } }>
+          <div style={{ marginLeft: '20px'}}>
   <img src="image\Main-Logo.png" alt="logo" style={{ maxWidth: '60px', height: '60px', borderRadius: '7px'}}  />
 </div>
         <Menubar className="menu" style={{borderWidth:'0px'}}>
@@ -55,7 +60,7 @@ import {
    </MenubarMenu>
 
    <MenubarMenu>
-    <MenubarTrigger>More</MenubarTrigger>
+    <MenubarTrigger>More<LuChevronDown /></MenubarTrigger>
     <MenubarContent>
       <MenubarItem>
        Live Stream
@@ -71,20 +76,25 @@ import {
 <div style={{display: "flex", justifyContent: "space-between", marginLeft: "125px",
     marginRight: "650px", marginTop: "25px", alignItems: "center"}}>
     <div>
-        <h2 style={{fontSize: "24px"}}>Back</h2>
+        <h2 style={{fontSize: "24px",display: "flex",
+    alignItems: "center"}}><LuArrowLeft /> Back</h2>
     </div>
     <div style={{display: "fleX", justifyContent: "center"}}>
         <h1 style={{fontSize: "2.343vw"}}>Team Profile</h1>
     </div>
 </div>
+<div>
 <div className="backgroundImage">
-   
       <img src="image\teamProfilebanner.png" className="background" style={{borderRadius: "15px"}}></img>
       <img src="image\TN5.png" alt="" className="overlay"/>
-      <div style={{marginTop: "30px", display: "flex", justifyContent: "space-between",
+      <div className="overlay-text"><h1>SC</h1></div>
+      <div style={{marginTop: "25px", display: "flex", justifyContent: "space-between",
     alignItems: "center", marginRight: "70px"}}>
+        </div></div><div className="menuitem">
       <div style={{ marginLeft: '70px' } }>
-  <h1 style={{fontSize: "2.34vw"}}>Dhruv CC</h1>
+
+  <h1 style={{fontSize: "2.34vw"}}>Shivoham CC</h1>
+
   </div>
 
   <Menubar className="menu" style={{borderWidth:'0px', fontSize: "100px"}}>
@@ -107,6 +117,7 @@ import {
   </Menubar>
 </div>
       </div>
+      <div><Cards /></div>
 
 </>
 

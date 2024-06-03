@@ -1,0 +1,165 @@
+
+.cardsContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 10px;
+  }
+  
+  .cardHeaderYellow {
+    background: yellow;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  
+  .cardHeaderPurple {
+    background: purple;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  
+  .cardHeaderGreen {
+    background: green;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .cardBody {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .cardSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .statsHeader {
+    font-weight: bold;
+  }
+  
+  .statsValue {
+    font-size: 24px;
+    color: purple;
+  }
+  
+  .detailButton {
+    background: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .winningStreak {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .streakIcons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .win, .loss {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 5px;
+  }
+  
+  .win {
+    background: green;
+    color: white;
+  }
+  
+  .loss {
+    background: red;
+    color: white;
+  }
+  
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .statsBox {
+    background: yellow;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .matchInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .team {
+    display: flex;
+    align-items: center;
+  }
+  
+  .teamLogo {
+    width: 30px;
+    height: 30px;
+    background: purple;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .score {
+    font-weight: bold;
+  }
+  
+  .vs {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .locationIcon {
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
