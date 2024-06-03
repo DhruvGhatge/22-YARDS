@@ -78,33 +78,35 @@ import {
     </div>
 </div>
 <div className="backgroundImage">
-      <img src="image\teamProfilebanner.png"></img>
+   
+      <img src="image\teamProfilebanner.png" className="background" style={{borderRadius: "15px"}}></img>
+      <img src="image\TN5.png" alt="" className="overlay"/>
       <div style={{marginTop: "30px", display: "flex", justifyContent: "space-between",
     alignItems: "center", marginRight: "70px"}}>
       <div style={{ marginLeft: '70px' } }>
-  <h1 style={{fontSize: "2.34vw"}}>Dhruv CC</h1></div>
+  <h1 style={{fontSize: "2.34vw"}}>Dhruv CC</h1>
+  </div>
 
-  <Menubar className="menu" style={{borderWidth:'0px', fontStyle: "2.34vw"}}>
+  <Menubar className="menu" style={{borderWidth:'0px', fontSize: "100px"}}>
   <MenubarMenu>
-    <MenubarTrigger style={{fontStyle: "2.34vw"}}>Info</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}}>Info</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontStyle: "2.34vw"}}>Matches</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}}>Matches</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontStyle: "2.34vw"}}>Profile</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}}>Profile</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontStyle: "2.34vw"}}>Member</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}}>Members</MenubarTrigger>
   </MenubarMenu>
 
   </Menubar>
 </div>
       </div>
-    
 
 </>
 
