@@ -1,10 +1,6 @@
-'use client'
 import { LuArrowLeft } from "react-icons/lu";
 import { LuChevronDown } from "react-icons/lu";
-import Cards from './cards';
-import Matchcards from "../matches/matchcards";
-import { useState, ReactElement, ComponentType } from 'react';
-import { useRouter } from "next/navigation";
+import Cards from '../nav/cards';
 import {
     Menubar,
     MenubarContent,
@@ -17,12 +13,7 @@ import {
   import { Button } from "@/components/ui/button"
 
 
-  export default function Navbar(){
-    const router=useRouter();
-    const [activeComponent, setActiveComponent] = useState<ReactElement | null>(<Cards/>);
-    const handleButtonClick = (component: ReactElement) => {
-      setActiveComponent(component);
-    };
+  export default function navbar(){
     return(
     <>
     <title>my website</title>
@@ -102,17 +93,17 @@ import {
         </div></div><div className="menuitem">
       <div style={{ marginLeft: '70px' } }>
 
-  <h1 style={{fontSize: "2.34vw"}}>Shivoham CC</h1>
+  <h1 style={{fontSize: "2.34vw"}}>Dhruv CC</h1>
 
   </div>
 
   <Menubar className="menu" style={{borderWidth:'0px', fontSize: "100px"}}>
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Cards />)}>Info</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}}>Info</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Matchcards />)} >Matches</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}}>Matches</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
@@ -126,8 +117,8 @@ import {
   </Menubar>
 </div>
       </div>
-      <div>{activeComponent}</div>
-      
+      <div><Cards /></div>
+      Matchcards
 
 </>
 
