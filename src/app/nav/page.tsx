@@ -2,7 +2,7 @@
 import { LuArrowLeft } from "react-icons/lu";
 import { LuChevronDown } from "react-icons/lu";
 import Cards from './cards';
-import Matchcards from "../matches/matchcards";
+import MatchCards from "./MatchCards"
 import { useState, ReactElement, ComponentType } from 'react';
 import { useRouter } from "next/navigation";
 import {
@@ -112,7 +112,7 @@ import {
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Matchcards />)} >Matches</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<MatchCards />)} >Matches</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
