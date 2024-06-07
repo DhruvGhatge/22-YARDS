@@ -1,8 +1,12 @@
 'use client'
 import { LuArrowLeft } from "react-icons/lu";
-import { LuChevronDown } from "react-icons/lu";
+import Navbar from "../Component/Navbar"
 import Cards from './cards';
 import MatchCards from "./MatchCards"
+import Members from "./Members"
+
+import Profile from "./Profile"
+
 import { useState, ReactElement, ComponentType } from 'react';
 import { useRouter } from "next/navigation";
 import {
@@ -17,7 +21,7 @@ import {
   import { Button } from "@/components/ui/button"
 
 
-  export default function Navbar(){
+  export default function TeamProfile(){
     const router=useRouter();
     const [activeComponent, setActiveComponent] = useState<ReactElement | null>(<Cards/>);
     const handleButtonClick = (component: ReactElement) => {
@@ -27,61 +31,9 @@ import {
     <>
     <title>my website</title>
    
-        <div className="abc">
-          <div style={{ marginLeft: '20px'}}>
-  <img src="image\Main-Logo.png" alt="logo" style={{ maxWidth: '60px', height: '60px', borderRadius: '7px'}}  />
-</div>
-        <Menubar className="menu" style={{borderWidth:'0px'}}>
-  <MenubarMenu>
-    <MenubarTrigger>Home</MenubarTrigger>
-  </MenubarMenu>
+       
+      <Navbar></Navbar>  
 
-  <MenubarMenu>
-    <MenubarTrigger>Live Matches</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-       Practice Matches
-      </MenubarItem>
-      <MenubarItem>Tournament</MenubarItem>
-       </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>Ecosystem</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-        Grounds
-      </MenubarItem>
-      <MenubarItem>Scores</MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem>Umpires</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>Leaderboard</MenubarTrigger>
-   </MenubarMenu>
-
-   <MenubarMenu>
-    <MenubarTrigger>Academy</MenubarTrigger>
-   </MenubarMenu>
-
-   <MenubarMenu>
-    <MenubarTrigger>blog</MenubarTrigger>
-   </MenubarMenu>
-
-   <MenubarMenu>
-    <MenubarTrigger>More<LuChevronDown /></MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-       Live Stream
-      </MenubarItem>
-      <MenubarItem>Contact Us</MenubarItem>
-    </MenubarContent>
-   </MenubarMenu>
-   <MenubarMenu>
-   <Button className="signin" variant="outline" style={{borderRadius:'24px', background:'#fff'}}>sign in</Button>
-   </MenubarMenu>
-</Menubar>
-</div>
 <div style={{display: "flex", justifyContent: "space-between", marginLeft: "125px",
     marginRight: "650px", marginTop: "25px", alignItems: "center"}}>
     <div>
@@ -116,18 +68,18 @@ import {
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}}>Profile</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Profile />)}>Profile</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}}>Members</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Members/>)}>Members</MenubarTrigger>
   </MenubarMenu>
 
   </Menubar>
 </div>
       </div>
       <div>{activeComponent}</div>
-      
+
 
 </>
 

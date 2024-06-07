@@ -1,0 +1,27 @@
+.card {
+    background-color: #fff9ab;
+    margin-top: 3.294vw;
+    padding: 1.611vw 5.124vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    box-shadow: 0 3px 25px #0000001a;
+    border-radius: 1.245vw;
+    min-height: 114.53px;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  
+  .section {
+    text-align: center;
+  }
+  
+  .section h2 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .section p {
+    margin: 0;
+  }

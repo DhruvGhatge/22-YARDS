@@ -1,0 +1,49 @@
+.cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    height: 140px;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .cardPlaceholder {
+    width: 80px;
+    height: 80px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cardImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  .cardName {
+    margin-top: auto;
+    padding: 5px;
+    background-color: #ffeb3b;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  

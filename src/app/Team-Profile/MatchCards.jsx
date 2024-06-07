@@ -40,7 +40,7 @@ const Matchcards = () => {
     },
 
     
-    // Add more match data objects here
+   
   ];
 
   return (

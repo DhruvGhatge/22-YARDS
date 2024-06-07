@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './matchcard.module.css';
+import { FaLocationDot } from "react-icons/fa6";
 
 const Matchcard = ({ match }) => {
   return (
@@ -30,7 +31,7 @@ const Matchcard = ({ match }) => {
           <div className={styles.score}>{match.team2.score}</div>
         </div>
         <div className={styles.location}>
-          <div className={styles.locationIcon}></div>
+          <div><FaLocationDot /></div>
           <div>{match.location}</div>
         </div>
       </div>
