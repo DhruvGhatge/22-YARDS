@@ -3,6 +3,9 @@
 import StatsCard from './StatsCard';
 import styles from './StatsCard.module.css';
 import  Info  from './info';
+import Matchcards from '../Team-Profile/MatchCards';
+import { BsPersonFillAdd } from "react-icons/bs";
+import { GiShare } from "react-icons/gi";
 import { useState, ReactElement, ComponentType } from 'react';
 import {
     Menubar,
@@ -73,14 +76,18 @@ export default function PlayerProfile(){
 <div>
 <div className="backgroundImage">
       <img src="image\teamProfilebanner.png" className="background" style={{borderRadius: "15px"}}></img>
-      <img src="image\praveenkumar.jpg" alt="" className="overlay" height={100}/>
-      
+      <img src="image\praveenkumar.jpg" alt="" className="overlay" height={100} style={{borderRadius: "20px"}}/>
+      <div className='socialbar'>
+        <div>Followers 0</div>
+        <div style={{display: "flex", alignItems: "center"}}>Follow <BsPersonFillAdd /></div>
+        <div><GiShare /></div>
+      </div>
       <div style={{marginTop: "25px", display: "flex", justifyContent: "space-between",
     alignItems: "center", marginRight: "70px"}}>
         </div></div><div className="menuitem">
       <div style={{ marginLeft: '70px' } }>
 
-  <h1 style={{fontSize: "2.34vw"}}>Praveen Kumar</h1>
+  <h1 style={{fontSize: "2.34vw", }}>Praveen Kumar</h1>
 
   </div>
 
@@ -120,7 +127,7 @@ export default function PlayerProfile(){
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)}>Matches</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Matchcards/>)}>Matches</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
