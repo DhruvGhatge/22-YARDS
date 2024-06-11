@@ -88,16 +88,17 @@ export default function PlayerProfile(){
       <div style={{ marginLeft: '70px' } }>
 
   <h1 style={{fontSize: "2.34vw", }}>Praveen Kumar</h1>
+  <h1 style={{fontSize: "1.34vw", color: "#794C9F" }}>Thiruvallur</h1>
 
   </div>
 
   <Menubar className="menu" style={{borderWidth:'0px', fontSize: "100px"}}>
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Info />)}>Info</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<Info />)}>Info</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div className={styles.container}>
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<div className={styles.container}>
       <div className={styles.grid}>
         {stats.map((stat, index) => (
           <StatsCard key={index} label={stat.label} value={stat.value} />
@@ -107,7 +108,7 @@ export default function PlayerProfile(){
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div className={styles.container}>
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<div className={styles.container}>
       <div className={styles.grid}>
         {Bowling.map((stat, index) => (
           <StatsCard key={index} label={stat.label} value={stat.value} />
@@ -117,7 +118,7 @@ export default function PlayerProfile(){
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div className={styles.container}>
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<div className={styles.container}>
       <div className={styles.grid}>
         {Fielding.map((stat, index) => (
           <StatsCard key={index} label={stat.label} value={stat.value} />
@@ -127,16 +128,16 @@ export default function PlayerProfile(){
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Matchcards/>)}>Matches</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<Matchcards/>)}>Matches</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div style={{marginRight: "150px", marginLeft: "150px", marginTop: "50px"}}><h1>Total Followers
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<div style={{marginRight: "150px", marginLeft: "150px", marginTop: "50px"}}><h1>Total Followers
 0</h1></div>)}>Followers</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div style={{marginRight: "150px", marginLeft: "150px", marginTop: "50px"}}><h1>Total Following
+    <MenubarTrigger style={{fontSize: "20px"}} onClick={() => handleButtonClick(<div style={{marginRight: "150px", marginLeft: "150px", marginTop: "50px"}}><h1>Total Following
 0</h1></div>)}>Following</MenubarTrigger>
   </MenubarMenu>
 
