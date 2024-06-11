@@ -1,0 +1,35 @@
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+  }
+  
+  .label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .value {
+    font-size: 24px;
+    color: #6c3dc0;
+    background-color: #eae3f8;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  
+  .container {
+    padding: 20px;
+    margin-left: 120px ;
+    margin-right:120px ;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }

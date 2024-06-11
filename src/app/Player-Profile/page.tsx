@@ -1,5 +1,8 @@
 
 'use client'
+import StatsCard from './StatsCard';
+import styles from './StatsCard.module.css';
+import  Info  from './info';
 import { useState, ReactElement, ComponentType } from 'react';
 import {
     Menubar,
@@ -14,17 +17,57 @@ import {
 
 import Navbar from "../Component/Navbar";
 export default function PlayerProfile(){
-    const [activeComponent, setActiveComponent] = useState<ReactElement | null>(<></>);
+    const [activeComponent, setActiveComponent] = useState<ReactElement | null>(<Info/>);
     const handleButtonClick = (component: ReactElement) => {
       setActiveComponent(component);
     };
+
+    const stats = [
+        { label: 'Matches', value: 4 },
+        { label: 'Runs', value: 101 },
+        { label: 'Balls', value: 86 },
+        { label: 'Highest', value: 39 },
+        { label: 'Average', value: 33.67 },
+        { label: 'SR', value: 117.44 },
+        { label: 'Not Out', value: 1 },
+        { label: 'Fours', value: 10 },
+        { label: 'Sixes', value: 4 },
+        { label: 'Duck', value: 0 },
+        { label: '50s', value: 0 },
+        { label: '100s', value: 0 },
+        { label: '200s', value: 0 },
+      ];
+
+      const Bowling = [
+        { label: 'Matches', value: 4 },
+        { label: 'Runs', value: 101 },
+        { label: 'Balls', value: 86 },
+        { label: 'Wickets', value: 9 },
+        { label: 'Maiden', value: 1 },
+        { label: 'Average', value: 13.67 },
+        { label: 'Eco', value: 6.32 },
+        { label: '4w', value: 1 },
+        { label: '5w', value: 10 },
+        { label: '10w', value: 4 },
+       
+      ]
+
+      const Fielding = [
+        { label: 'Matches', value: 4 },
+        { label: 'Runout', value: 2 },
+        { label: 'Catches', value: 0 },
+      ]
+    
     return(
-              <><Navbar></Navbar>
+              <>
+               <title>my website</title>
+   
+              <Navbar></Navbar>
               <div style={{display: "flex", justifyContent: "space-between", marginLeft: "125px",
     marginRight: "650px", marginTop: "25px", alignItems: "center"}}>
    
-    <div style={{display: "fleX", justifyContent: "center"}}>
-        <h1 style={{fontSize: "2.343vw"}}>Team Profile</h1>
+    <div style={{display: "fleX", justifyContent: "center", marginRight: "500px", marginLeft: "550px" }}>
+        <h1 style={{fontSize: "2.343vw"}}>Profile</h1>
     </div>
 </div>
 <div>
@@ -43,19 +86,37 @@ export default function PlayerProfile(){
 
   <Menubar className="menu" style={{borderWidth:'0px', fontSize: "100px"}}>
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)}>Info</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Info />)}>Info</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)} >Batting</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div className={styles.container}>
+      <div className={styles.grid}>
+        {stats.map((stat, index) => (
+          <StatsCard key={index} label={stat.label} value={stat.value} />
+        ))}
+      </div>
+    </div>)} >Batting</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)}>Bowling</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div className={styles.container}>
+      <div className={styles.grid}>
+        {Bowling.map((stat, index) => (
+          <StatsCard key={index} label={stat.label} value={stat.value} />
+        ))}
+      </div>
+    </div>)}>Bowling</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)}>Fielding</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div className={styles.container}>
+      <div className={styles.grid}>
+        {Fielding.map((stat, index) => (
+          <StatsCard key={index} label={stat.label} value={stat.value} />
+        ))}
+      </div>
+    </div>)}>Fielding</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
@@ -63,16 +124,19 @@ export default function PlayerProfile(){
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)}>Followers</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div style={{marginRight: "150px", marginLeft: "150px", marginTop: "50px"}}><h1>Total Followers
+0</h1></div>)}>Followers</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<></>)}>Following</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<div style={{marginRight: "150px", marginLeft: "150px", marginTop: "50px"}}><h1>Total Following
+0</h1></div>)}>Following</MenubarTrigger>
   </MenubarMenu>
 
   </Menubar>
 </div>
       </div>
+      {activeComponent}
       
               </>
 
