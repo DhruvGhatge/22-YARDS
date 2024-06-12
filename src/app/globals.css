@@ -89,10 +89,10 @@
         position: absolute;
     z-index: 1;
     margin-left: 950px;
-    width: 304px;
+    width: 300px;
     height: 40px;
     border-radius: 30px;
-    margin-top: 20px;
+    margin-top: 15px;
     background: #fff9ab;
     display: flex;
     align-items: center;

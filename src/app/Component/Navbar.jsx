@@ -18,7 +18,7 @@ export default function Navbar(){
     return(
       <div className={styles.abc}>
           <div style={{ marginLeft: '20px'}}>
-  <img src="image\Main-Logo.png" alt="logo" style={{ maxWidth: '60px', height: '60px', borderRadius: '7px'}}  />
+  <img src="\image\Main-Logo.png" alt="logo" style={{ maxWidth: '60px', height: '60px', borderRadius: '7px'}}  />
 </div>
 
    

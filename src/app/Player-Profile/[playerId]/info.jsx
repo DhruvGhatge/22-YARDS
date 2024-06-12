@@ -1,11 +1,11 @@
-export default function Info(){
+export default function Info({data}){
     return(
         <>
         <div style={{marginRight: "120px", marginLeft: "120px", marginTop: "25px", marginBottom: "50px"}}>
         <div style={{display: "flex", justifyContent: "space-around", marginBottom: "25px"}}>
             <div>
                 <h2>Date of Birth</h2>
-                <h1><b>3/7/1993</b></h1>
+                <h1><b>{data?.apiData?data?.apiData.age: "data not found"}</b></h1>
             </div>
 
             <div>
@@ -55,7 +55,6 @@ export default function Info(){
                 <h1><b>Batting Allrounder</b></h1>
             </div>
 
-            
         </div>
         </div>
         </>

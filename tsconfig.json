@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/app/Team-Profile/MatchCards.jsx", "src/app/Team-Profile/MatchCard.jsx"  ],
+, "src/app/Team-Profile/[teamId]/MatchCards.jsx", "src/app/Team-Profile/[teamId]/MatchCard.jsx"  ],
   "exclude": [
     "node_modules"
   ]

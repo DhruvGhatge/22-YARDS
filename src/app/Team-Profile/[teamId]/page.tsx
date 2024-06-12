@@ -1,6 +1,6 @@
 'use client'
 import { LuArrowLeft } from "react-icons/lu";
-import Navbar from "../Component/Navbar"
+import Navbar from "../../Component/Navbar"
 import Cards from './cards';
 import MatchCards from "./MatchCards"
 import Members from "./Members"
@@ -30,9 +30,8 @@ import {
     return(
     <>
     <title>my website</title>
-   
-       
-      <Navbar></Navbar>  
+
+      <Navbar></Navbar>
 
 <div style={{display: "flex", justifyContent: "space-between", marginLeft: "125px",
     marginRight: "650px", marginTop: "25px", alignItems: "center"}}>
@@ -46,8 +45,8 @@ import {
 </div>
 <div>
 <div className="backgroundImage">
-      <img src="image\teamProfilebanner.png" className="background" style={{borderRadius: "15px"}}></img>
-      <img src="image\TN5.png" alt="" className="overlay"/>
+      <img src="\image\teamProfilebanner.png" className="background" style={{borderRadius: "15px"}}></img>
+      <img src="\image\TN5.png" alt="" className="overlay"/>
       <div className="overlay-text"><h1>SC</h1></div>
       <div style={{marginTop: "25px", display: "flex", justifyContent: "space-between",
     alignItems: "center", marginRight: "70px"}}>
