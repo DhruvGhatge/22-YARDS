@@ -1,12 +1,10 @@
 
 'use client'
-import StatsCard from './StatsCard';
-import styles from './StatsCard.module.css';
-import Info from './info';
-import Matchcards from '../../Team-Profile/[teamId]/MatchCards';
+import StaticComponent from './staticComponent';
 import { BsPersonFillAdd } from "react-icons/bs";
 import { GiShare } from "react-icons/gi";
 import { useState, ReactElement, ComponentType, useEffect } from 'react';
+import MenubarComponent from "./DynamicMenubar"
 import {
   Menubar,
   MenubarContent,
@@ -24,12 +22,12 @@ import axios from '../../../utils/ajax';
 export default function PlayerProfile({ params }: { params: { playerId: string } }) {
   console.log("this is playerId", params.playerId)
   const [apiData, setApiData] = useState<any>(null);
-  const [activeComponent, setActiveComponent] = useState<ReactElement | null>(<Info data={apiData} />);
-  const handleButtonClick = (component: ReactElement) => {
-    setActiveComponent(component);
+  const [name, setname] = useState<any>('info');
+  const handleButtonClick = (Name: any) => {
+    setname(Name);
   };
 
-  const stats = [
+  const Batting = [
     { label: 'Matches', value: 4 },
     { label: 'Runs', value: 101 },
     { label: 'Balls', value: 86 },
@@ -75,6 +73,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
     }
     fetchData();
   }, []);
+  console.log(apiData)
 
   return (
     <>
@@ -113,61 +112,39 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
 
           <Menubar className="menu" style={{ borderWidth: '0px', fontSize: "100px" }}>
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<Info data = {apiData}/>)}>Info</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('info')}>Info</MenubarTrigger>
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<div className={styles.container}>
-                <div className={styles.grid}>
-                  {stats.map((stat, index) => (
-                    <StatsCard key={index} label={stat.label} value={stat.value} />
-                  ))}
-                </div>
-              </div>)} >Batting</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('batting')} >Batting</MenubarTrigger>
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<div className={styles.container}>
-                <div className={styles.grid}>
-                  {Bowling.map((stat, index) => (
-                    <StatsCard key={index} label={stat.label} value={stat.value} />
-                  ))}
-                </div>
-              </div>)}>Bowling</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('bowling')}>Bowling</MenubarTrigger>
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<div className={styles.container}>
-                <div className={styles.grid}>
-                  {Fielding.map((stat, index) => (
-                    <StatsCard key={index} label={stat.label} value={stat.value} />
-                  ))}
-                </div>
-              </div>)}>Fielding</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('fielding')}>Fielding</MenubarTrigger>
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<Matchcards />)}>Matches</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('matches')}>Matches</MenubarTrigger>
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<div style={{ marginRight: "150px", marginLeft: "150px", marginTop: "50px" }}><h1>Total Followers
-                0</h1></div>)}>Followers</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('followers')}>Followers</MenubarTrigger>
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick(<div style={{ marginRight: "150px", marginLeft: "150px", marginTop: "50px" }}><h1>Total Following
-                0</h1></div>)}>Following</MenubarTrigger>
+              <MenubarTrigger style={{ fontSize: "20px" }} onClick={() => handleButtonClick('following')}>Following</MenubarTrigger>
             </MenubarMenu>
 
           </Menubar>
         </div>
       </div>
-      {activeComponent}
-      {apiData?apiData.age: "data not found"}
+     <MenubarComponent ComponentName={name} Batting={Batting} Bowling={Bowling} Fielding={Fielding} InfoData={apiData}/>
       
 
     </>
-
   );
 };
