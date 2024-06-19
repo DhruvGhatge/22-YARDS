@@ -6,22 +6,22 @@ export default function Info({data}){
         <div style={{display: "flex", justifyContent: "space-around", marginBottom: "25px"}}>
             <div>
                 <h2>Date of Birth</h2>
-                <h1><b>{data?.age || "data not found"}</b></h1>
+                <h1><b>{data?.dob|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>Gender</h2>
-                <h1><b>Male</b></h1>
+                <h1><b>{data?.gender|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>PREFERED LOCATION</h2>
-                <h1><b>Thiruvallur</b></h1>
+                <h1><b>{data?.location|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>ABOUT</h2>
-                <h1><b>Cricket lover Hit Man Fan Sachin Fan</b></h1>
+                <h1><b>{data?.description|| "-"}</b></h1>
             </div>
         </div>
 
@@ -33,27 +33,27 @@ export default function Info({data}){
 
              <div>
                 <h2>HAND TYPE</h2>
-                <h1><b>Right</b></h1>
+                <h1><b>{data?.specialization?.handType|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>BATTING TYPE</h2>
-                <h1><b>Middle Order Batsman</b></h1>
+                <h1><b>{data?.specialization?.batsman|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>BOWLING TYPE</h2>
-                <h1><b>Right Arm Medium</b></h1>
+                <h1><b> {data?.specialization?.bowler|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>KEEPER TYPE</h2>
-                <h1><b>-</b></h1>
+                <h1><b>{data?.specialization?.keeper|| "-"}</b></h1>
             </div>
 
             <div>
                 <h2>ALLROUNDER TYPE</h2>
-                <h1><b>Batting Allrounder</b></h1>
+                <h1><b>{data?.specialization?.allrounder|| "-"}</b></h1>
             </div>
 
         </div>

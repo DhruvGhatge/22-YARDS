@@ -27,55 +27,71 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
     setname(Name);
   };
 
-  const Batting = [
-    { label: 'Matches', value: 4 },
-    { label: 'Runs', value: 101 },
-    { label: 'Balls', value: 86 },
-    { label: 'Highest', value: 39 },
-    { label: 'Average', value: 33.67 },
-    { label: 'SR', value: 117.44 },
-    { label: 'Not Out', value: 1 },
-    { label: 'Fours', value: 10 },
-    { label: 'Sixes', value: 4 },
-    { label: 'Duck', value: 0 },
-    { label: '50s', value: 0 },
-    { label: '100s', value: 0 },
-    { label: '200s', value: 0 },
-  ];
+  const [BattingData, setBattingData] = useState<any>(null);
 
-  const Bowling = [
-    { label: 'Matches', value: 4 },
-    { label: 'Runs', value: 101 },
-    { label: 'Balls', value: 86 },
-    { label: 'Wickets', value: 9 },
-    { label: 'Maiden', value: 1 },
-    { label: 'Average', value: 13.67 },
-    { label: 'Eco', value: 6.32 },
-    { label: '4w', value: 1 },
-    { label: '5w', value: 10 },
-    { label: '10w', value: 4 },
+  
 
-  ]
+  const [BowlingData, setBowlingData] = useState<any>(null);
 
-  const Fielding = [
-    { label: 'Matches', value: 4 },
-    { label: 'Runout', value: 2 },
-    { label: 'Catches', value: 0 },
-  ]
+  
+
+  const [FieldingData, setFieldingData] = useState<any>(null);
+
+  
 
   useEffect(() => {
     async function fetchData() {
       const response = await axios({
-        url: `https://api.22yards.co.in/api/web/player/publicInfo/60e2cbd04a40f60e76a6ba25/5d3979a1976bb432c01dea47`,
+        url: `https://api.22yards.co.in/api/web/player/publicInfo/60e2cbd04a40f60e76a6ba25/${params.playerId}`,
         method: 'GET'
       })
       setApiData(response.data.response);
+
     }
     fetchData();
   }, []);
-  console.log(apiData)
+
+ 
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios({
+        url: `https://api.22yards.co.in/api/web/scorer/playerBattingStats/${params.playerId}`,
+        method: 'GET'
+      })
+      setBattingData(response.data.response);
+
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios({
+        url: `https://api.22yards.co.in/api/web/scorer/playerBowlingStats/${params.playerId}`,
+        method: 'GET'
+      })
+      setBowlingData(response.data.response);
+
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios({
+        url: `https://api.22yards.co.in/api/web/scorer/playerFieldingStats/${params.playerId}`,
+        method: 'GET'
+      })
+      setFieldingData(response.data.response);
+
+    }
+    fetchData();
+  }, []);
+
 
   return (
+
     <>
       <title>my website</title>
 
@@ -142,7 +158,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
           </Menubar>
         </div>
       </div>
-     <MenubarComponent ComponentName={name} Batting={Batting} Bowling={Bowling} Fielding={Fielding} InfoData={apiData}/>
+     <MenubarComponent ComponentName={name} Batting={BattingData} Bowling={BowlingData} Fielding={FieldingData} InfoData={apiData}/>
       
 
     </>
