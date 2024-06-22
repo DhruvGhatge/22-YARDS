@@ -37,6 +37,8 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
 
   const [FieldingData, setFieldingData] = useState<any>(null);
 
+  const [MatchData, setMatchData] = useState<any>(null);
+
   
 
   useEffect(() => {
@@ -77,6 +79,8 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
     fetchData();
   }, []);
 
+
+
   useEffect(() => {
     async function fetchData() {
       const response = await axios({
@@ -89,6 +93,17 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
     fetchData();
   }, []);
 
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios({
+        url: `https://api.22yards.co.in/api/web/scorer?type=player&playerId=6117cebda707b71f42d7ac6a&pageNo=1&pageSize=30`,
+        method: 'GET'
+      })
+      setMatchData(response.data.response);
+    }
+    fetchData();
+    console.log(MatchData);
+  }, []);
 
   return (
 
@@ -158,7 +173,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
           </Menubar>
         </div>
       </div>
-     <MenubarComponent ComponentName={name} Batting={BattingData} Bowling={BowlingData} Fielding={FieldingData} InfoData={apiData}/>
+     <MenubarComponent ComponentName={name} Batting={BattingData} Bowling={BowlingData} Fielding={FieldingData} InfoData={apiData} matchCard={MatchData}/>
       
 
     </>

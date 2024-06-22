@@ -5,34 +5,40 @@ import styles from './matchcard.module.css';
 import { FaLocationDot } from "react-icons/fa6";
 
 const Matchcard = ({ match }) => {
+  console.log(match);
+  const date = new Date(match[1].matchDateTime);
+  const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   return (
+    
     <div className={styles.card}>
       <div className={styles.cardHeaderGreen}>
         <div className={styles.headerLeft}>
           <div>{match.date}</div>
           <div>SCOREBOOK</div>
         </div>
+        <div>{timeString}</div>
         <div>RESULT</div>
       </div>
+      <div style={{background: "grey", color:"white"}}><h4 style={{marginLeft:"50px"}}>{match[1].matchResult}</h4></div>
       <div className={styles.cardBody}>
         <div className={styles.matchInfo}>
           <div className={styles.team}>
-            <div className={styles.teamLogo}>{match.team1.shortName}</div>
-            <div>{match.team1.name}</div>
+            <div className={styles.teamLogo}>{match[1].AteamShortName}</div>
+            <div>{match[1].AteamName}</div>
           </div>
-          <div className={styles.score}>{match.team1.score}</div>
+          <div className={styles.score}>{match[1].matchScore[0].totalRun}</div>
         </div>
         <div className={styles.vs}>vs</div>
         <div className={styles.matchInfo}>
           <div className={styles.team}>
-            <div className={styles.teamLogo}>{match.team2.shortName}</div>
-            <div>{match.team2.name}</div>
+            <div className={styles.teamLogo}>{match[1].BteamShortName}</div>
+            <div>{match[1].BteamName}</div>
           </div>
-          <div className={styles.score}>{match.team2.score}</div>
+          <div className={styles.score}>{match[1].matchScore[1].totalRun}</div>
         </div>
         <div className={styles.location}>
           <div><FaLocationDot /></div>
-          <div>{match.location}</div>
+          <div>{match[1].ground}</div>
         </div>
       </div>
     </div>

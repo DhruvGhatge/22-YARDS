@@ -5,6 +5,10 @@ import StatsCard from './StatsCard';
 import dynamicType from './dynamicType';
 import Matchcards from '../../Team-Profile/[teamId]/MatchCards';
 import styles from './StatsCard.module.css';
+import ProfileCard from './ProfileCard.';
+import styled from '@emotion/styled';
+
+
 
 
 
@@ -14,14 +18,37 @@ const MenubarComponent = ({
   Batting,
   Bowling,
   Fielding,
-  InfoData
+  InfoData,
+  matchCard
 }) => {
+  console.log(matchCard);
   const keysofbatting = [
     "matches", "runs", "balls", "hs", "avg", "sr", 
     "notOut", "fours", "sixes", "duck", "fifty", 
     "hundred", "twohundred"
   ];
 
+  const profiles = [
+    { name: 'Nishanth', role: 'Right Hand Batsman', avatar: '\image\teamProfilebanner.png' },
+    { name: 'Sanju', role: 'Right Hand Batsman', avatar: '/sanju.jpg' },
+    { name: 'Ashwin', role: 'Right Hand Batsman', avatar: '/default-avatar.png' },
+    { name: 'Karthik Raja', role: 'Right Hand Batsman', avatar: '/karthik-raja.jpg' },
+    { name: 'Rahul Anil Babu', role: 'Right Hand Batsman', avatar: '/rahul-anil-babu.jpg' },
+    { name: 'RS Praveen', role: 'Right Hand Batsman', avatar: '/default-avatar.png' },
+    { name: 'Narasimhan', role: 'Right Hand Batsman', avatar: '/default-avatar.png' },
+    { name: 'Maheshathava', role: 'Right Hand Batsman', avatar: '/maheshathava.jpg' },
+    { name: 'Jenish', role: '-', avatar: '/default-avatar.png' }
+  ];
+
+  const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+`;
+
+  
   const keyLabelBatting = {
     matches: "Matches",
     runs: "Runs",
@@ -139,13 +166,21 @@ const MenubarComponent = ({
 
       case dynamicType.matches:
         return(
-            <Matchcards />
+            <Matchcards matchData={matchCard}/>
         );
 
       case dynamicType.followers:
         return (
-            <div style={{ marginRight: "150px", marginLeft: "150px", marginTop: "50px" }}><h1>Total Followers
-                0</h1></div>
+            // <div style={{ marginRight: "150px", marginLeft: "150px", marginTop: "50px" }}><h1>Total Followers
+            //     0</h1></div>
+            <main>
+        <Container>
+          {profiles.map(profile => (
+            <ProfileCard key={profile.name} {...profile} />
+          ))}
+        </Container>
+      </main>
+
         );
 
       case dynamicType.following:
