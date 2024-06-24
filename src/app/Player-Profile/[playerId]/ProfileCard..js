@@ -2,6 +2,7 @@
 
 import styled from '@emotion/styled';
 
+
 const Card = styled.div`
   display: flex;
   align-items: center;
@@ -27,8 +28,8 @@ const AvatarWrapper = styled.div`
 `;
 
 const Avatar = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 107px;
+  height: 107px;
   border-radius: 50%;
 `;
 
@@ -47,15 +48,16 @@ const Role = styled.div`
   color: #666;
 `;
 
-const img = '\image\teamProfilebanner.png';
+const img = '/image/teamProfilebanner.png';
 
 const ProfileCard = ({ name, role, avatar }) => (
   <Card>
     <AvatarWrapper>
-      <Avatar src= '${img}' alt={name} />
+      <Avatar src= {avatar} alt={name} />
     </AvatarWrapper>
     <Info>
       <Name>{name}</Name>
+      {console.log(name)}
       <Role>{role}</Role>
     </Info>
   </Card>

@@ -29,22 +29,25 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
 
   const [BattingData, setBattingData] = useState<any>(null);
 
-  
-
   const [BowlingData, setBowlingData] = useState<any>(null);
-
-  
 
   const [FieldingData, setFieldingData] = useState<any>(null);
 
   const [MatchData, setMatchData] = useState<any>(null);
 
+  const [TotalFollowers, setTotalFollowers] = useState<any>(0);
+
   
+
+  const[Followers, setFollowers] = useState<any>(null);
+
+  const[Followings, setFollowings] = useState<any>(null);
 
   useEffect(() => {
     async function fetchData() {
       const response = await axios({
-        url: `https://api.22yards.co.in/api/web/player/publicInfo/60e2cbd04a40f60e76a6ba25/${params.playerId}`,
+        url: `
+        https://api.22yards.co.in/api/web/player/publicInfo/60e2cbd04a40f60e76a6ba25/${params.playerId}`,
         method: 'GET'
       })
       setApiData(response.data.response);
@@ -53,7 +56,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
     fetchData();
   }, []);
 
- 
+
 
   useEffect(() => {
     async function fetchData() {
@@ -96,7 +99,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
   useEffect(() => {
     async function fetchData() {
       const response = await axios({
-        url: `https://api.22yards.co.in/api/web/scorer?type=player&playerId=6117cebda707b71f42d7ac6a&pageNo=1&pageSize=30`,
+        url: `https://api.22yards.co.in/api/web/scorer?type=player&playerId=${params.playerId}&pageNo=1&pageSize=30`,
         method: 'GET'
       })
       setMatchData(response.data.response);
@@ -105,6 +108,37 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
     console.log(MatchData);
   }, []);
 
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios({
+        url: `https://api.22yards.co.in/api/web/player/followers?playerId=${params.playerId}&pageNo=1&pageSize=30`,
+        method: 'GET'
+      })
+      setFollowers(response.data.response);
+    }
+    fetchData();
+    console.log(Followers);
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios({
+        url: `https://api.22yards.co.in/api/web/player/following?playerId=${params.playerId}&pageNo=1&pageSize=30`,
+        method: 'GET'
+      })
+      setFollowers(response.data.response);
+     
+    }
+    fetchData();
+    console.log(Followings);
+  }, []);
+
+  useEffect(() => {
+    Followers?setTotalFollowers(Object.keys(Followers).length):setTotalFollowers(0)
+  }, [Followers]);
+
+  
+  
   return (
 
     <>
@@ -125,7 +159,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
           <img src="\image\teamProfilebanner.png" className="background" style={{ borderRadius: "15px" }}></img>
           <img src="\image\praveenkumar.jpg" alt="" className="overlay" height={100} style={{ borderRadius: "20px" }} />
           <div className='socialbar'>
-            <div>Followers 0</div>
+            <div>Followers {TotalFollowers}</div>
             <div style={{ display: "flex", alignItems: "center" }}>Follow <BsPersonFillAdd /></div>
             <div><GiShare /></div>
           </div>
@@ -173,8 +207,8 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
           </Menubar>
         </div>
       </div>
-     <MenubarComponent ComponentName={name} Batting={BattingData} Bowling={BowlingData} Fielding={FieldingData} InfoData={apiData} matchCard={MatchData}/>
-      
+     <MenubarComponent ComponentName={name} Batting={BattingData} Bowling={BowlingData} Fielding={FieldingData} InfoData={apiData} matchCard={MatchData} Followers={Followers} Followings={Followings}/>
+
 
     </>
   );

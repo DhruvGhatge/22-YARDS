@@ -9,7 +9,7 @@ const Matchcard = ({ match }) => {
   const date = new Date(match[1].matchDateTime);
   const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   return (
-    
+
     <div className={styles.card}>
       <div className={styles.cardHeaderGreen}>
         <div className={styles.headerLeft}>
@@ -26,7 +26,7 @@ const Matchcard = ({ match }) => {
             <div className={styles.teamLogo}>{match[1].AteamShortName}</div>
             <div>{match[1].AteamName}</div>
           </div>
-          <div className={styles.score}>{match[1].matchScore[0].totalRun}</div>
+          <div className={styles.score}>{match[1].matchScore[0].totalRun}/{match[1].matchScore[0].totalWicket} ({match[1].matchScore[0].oversPlayed}/{match[1].matchScore[0].overs})</div>
         </div>
         <div className={styles.vs}>vs</div>
         <div className={styles.matchInfo}>
@@ -34,7 +34,7 @@ const Matchcard = ({ match }) => {
             <div className={styles.teamLogo}>{match[1].BteamShortName}</div>
             <div>{match[1].BteamName}</div>
           </div>
-          <div className={styles.score}>{match[1].matchScore[1].totalRun}</div>
+          <div className={styles.score}>{match[1].matchScore[1].totalRun}/{match[1].matchScore[1].totalWicket} ({match[1].matchScore[1].oversPlayed}/{match[1].matchScore[1].overs})</div>
         </div>
         <div className={styles.location}>
           <div><FaLocationDot /></div>
