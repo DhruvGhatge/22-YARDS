@@ -57,7 +57,7 @@ const ProfileCard = ({ name, role, avatar }) => (
     </AvatarWrapper>
     <Info>
       <Name>{name}</Name>
-      {console.log(name)}
+      {/* {console.log(name)} */}
       <Role>{role}</Role>
     </Info>
   </Card>

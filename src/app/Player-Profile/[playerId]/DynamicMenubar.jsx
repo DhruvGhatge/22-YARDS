@@ -23,7 +23,7 @@ const MenubarComponent = ({
   Followers,
   Followings
 }) => {
-  console.log(matchCard);
+  // console.log(matchCard);
   const keysofbatting = [
     "matches", "runs", "balls", "hs", "avg", "sr",
     "notOut", "fours", "sixes", "duck", "fifty",
@@ -166,7 +166,7 @@ const MenubarComponent = ({
 
       case dynamicType.matches:
         return (
-          <Matchcards matchData={matchCard} />
+          <Matchcards matchData={matchCard} teamMatchCard={false} />
         );
 
       case dynamicType.followers:

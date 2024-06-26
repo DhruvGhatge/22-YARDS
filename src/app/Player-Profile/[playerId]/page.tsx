@@ -1,5 +1,6 @@
 
 'use client'
+
 import StaticComponent from './staticComponent';
 import { BsPersonFillAdd } from "react-icons/bs";
 import { GiShare } from "react-icons/gi";
@@ -20,7 +21,7 @@ import Navbar from "../../Component/Navbar";
 import axios from '../../../utils/ajax';
 
 export default function PlayerProfile({ params }: { params: { playerId: string } }) {
-  console.log("this is playerId", params.playerId)
+  // console.log("this is playerId", params.playerId)
   const [apiData, setApiData] = useState<any>(null);
   const [name, setname] = useState<any>('info');
   const handleButtonClick = (Name: any) => {
@@ -37,7 +38,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
 
   const [TotalFollowers, setTotalFollowers] = useState<any>(0);
 
-  
+
 
   const[Followers, setFollowers] = useState<any>(null);
 
@@ -105,7 +106,7 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
       setMatchData(response.data.response);
     }
     fetchData();
-    console.log(MatchData);
+    // console.log(MatchData);
   }, []);
 
   useEffect(() => {
@@ -115,9 +116,12 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
         method: 'GET'
       })
       setFollowers(response.data.response);
+      console.log(response.data.response)
+      console.log(Object.keys(response.data.response))
+      response.data.response?setTotalFollowers(Object.keys(response.data.response).length):setTotalFollowers(0)
     }
     fetchData();
-    console.log(Followers);
+    // console.log(Followers);
   }, []);
 
   useEffect(() => {
@@ -127,15 +131,17 @@ export default function PlayerProfile({ params }: { params: { playerId: string }
         method: 'GET'
       })
       setFollowers(response.data.response);
-     
+      
     }
     fetchData();
     console.log(Followings);
   }, []);
 
-  useEffect(() => {
-    Followers?setTotalFollowers(Object.keys(Followers).length):setTotalFollowers(0)
-  }, [Followers]);
+
+
+  // useEffect(() => {
+  //   // Followers?setTotalFollowers(Object.keys(Followers).length):setTotalFollowers(0)
+  // }, [Followers]);
 
   
   

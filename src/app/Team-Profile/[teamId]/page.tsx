@@ -4,10 +4,11 @@ import Navbar from "../../Component/Navbar"
 import Cards from './cards';
 import MatchCards from "./MatchCards"
 import Members from "./Members"
-
+import MenubarComponent from "./DynamicMenubar"
+import axios from '../../../utils/ajax';
 import Profile from "./Profile"
 
-import { useState, ReactElement, ComponentType } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
 import {
     Menubar,
@@ -23,10 +24,61 @@ import {
 
   export default function TeamProfile(){
     const router=useRouter();
-    const [activeComponent, setActiveComponent] = useState<ReactElement | null>(<Cards/>);
-    const handleButtonClick = (component: ReactElement) => {
-      setActiveComponent(component);
+    const [ComponentName, setComponentName] = useState<any>("info");
+    const handleButtonClick = (component: any) => {
+      setComponentName(component);
     };
+
+    const [SessionalStats, setSessionalStats] = useState<any>(null)
+    const [ConslidatedStats, setConslidatedStats] = useState<any>(null)
+    const [ScoreCard, setScoreCard] = useState<any>(null)
+    const [Profile, setProfile] = useState<any>(null)
+    const [membersData, setMembers] = useState<any>(null)
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await axios({
+          url: `https://api.22yards.co.in/api/teams/sessionalStats/5da446374bdd3804cc815532`,
+          method: 'GET'
+        })
+        setSessionalStats(response.data.response);
+      }
+      fetchData();
+    }, []);
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await axios({
+          url: `https://api.22yards.co.in/api/teams/conslidatedStats/5da446374bdd3804cc815532`,
+          method: 'GET'
+        })
+        setConslidatedStats(response.data.response);
+      }
+      fetchData();
+    }, []);
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await axios({
+          url: `https://api.22yards.co.in/api/web/scorer?type=team&playerId=60e2cbd04a40f60e76a6ba25&pageNo=1&pageSize=10&teamId=5da446374bdd3804cc815532`,
+          method: 'GET'
+        })
+        setScoreCard(response.data.response);
+      }
+      fetchData();
+    }, []);
+
+    useEffect(() => {
+      async function fetchData() {
+        const response = await axios({
+          url: `https://api.22yards.co.in/api/teams/members/5da446374bdd3804cc815532/60e2cbd04a40f60e76a6ba25`,
+          method: 'GET'
+        })
+        setMembers(response.data.response);
+      }
+      fetchData();
+    }, []);
+
     return(
     <>
     <title>my website</title>
@@ -59,27 +111,25 @@ import {
 
   <Menubar className="menu" style={{borderWidth:'0px', fontSize: "100px"}}>
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Cards />)}>Info</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick("info")}>Info</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<MatchCards />)} >Matches</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick("matches")} >Matches</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Profile />)}>Profile</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick("profile")}>Profile</MenubarTrigger>
   </MenubarMenu>
 
   <MenubarMenu>
-    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick(<Members/>)}>Members</MenubarTrigger>
+    <MenubarTrigger style={{fontSize: "30px"}} onClick={() => handleButtonClick("members")}>Members</MenubarTrigger>
   </MenubarMenu>
 
   </Menubar>
 </div>
       </div>
-      <div>{activeComponent}</div>
-
-
+      <MenubarComponent ComponentName={ComponentName} SessionalStats={SessionalStats} ConslidatedStats={ConslidatedStats} ScoreCard={ScoreCard} membersData={membersData}></MenubarComponent>
 </>
 
     )

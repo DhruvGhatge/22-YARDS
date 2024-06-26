@@ -1,7 +1,7 @@
 
 import styles from './Cards.module.css';
 
-const Cards = () => {
+const Cards = ({SessionalData, ConslidatedStats, ScoreCard}) => {
   return (
     <div className={styles.cardsContainer}>
       <div className={styles.card}>
@@ -15,20 +15,20 @@ const Cards = () => {
           <div className={styles.cardSection}>
             <div>
               <div className={styles.statsHeader}>PLAYED</div>
-              <div className={styles.statsValue}>4</div>
+              <div className={styles.statsValue}>{ SessionalData?SessionalData.matches : "-"}</div>
             </div>
             <div>
               <div className={styles.statsHeader}>WON</div>
-              <div className={styles.statsValue}>1</div>
+              <div className={styles.statsValue}>{ SessionalData?SessionalData.won : "-"}</div>
             </div>
             <div>
               <div className={styles.statsHeader}>LOST</div>
-              <div className={styles.statsValue}>3</div>
+              <div className={styles.statsValue}>{ SessionalData?SessionalData.lost : "-"}</div>
             </div>
           </div>
           <div className={styles.winningStreak}>WINNING STREAK</div>
           <div className={styles.streakIcons}>
-            <div className={styles.win}>W</div>
+            <div className={styles.win}>w</div>
             <div className={styles.loss}>L</div>
             <div className={styles.loss}>L</div>
             <div className={styles.loss}>L</div>
@@ -41,30 +41,30 @@ const Cards = () => {
           <div className={styles.statsGrid}>
             <div className={styles.statsBox}>
               <div>MATCHES PLAYED</div>
-              <div>5</div>
+              <div>{ ConslidatedStats?ConslidatedStats.matches : "-"}</div>
             </div>
             <div className={styles.statsBox}>
               <div>WON MATCHES</div>
-              <div>2</div>
+              <div>{ ConslidatedStats?ConslidatedStats.won : "-"}</div>
             </div>
             <div className={styles.statsBox}>
               <div>LOST MATCHES</div>
-              <div>3</div>
+              <div>{ ConslidatedStats?ConslidatedStats.lost : "-"}</div>
             </div>
             <div className={styles.statsBox}>
               <div>NET RUNRATE</div>
-              <div>-0.67</div>
+              <div>{ ConslidatedStats?ConslidatedStats.nrr : "-"}</div>
             </div>
             <div className={styles.statsBox}>
               <div>AVG SCORE</div>
-              <div>151</div>
+              <div>{ ConslidatedStats?ConslidatedStats.averageScore : "-"}</div>
             </div>
             <div className={styles.statsBox}>
-              <div>HIGHEST SCORE</div>
-              <div>179</div>
+              <div>HIGHEST SCORE</div>highestScore
+              <div>{ ConslidatedStats?ConslidatedStats.highestScore : "-"}</div>
             </div>
           </div>
-          <div className={styles.winningStreak}>40 Winning Streak</div>
+          <div className={styles.winningStreak}>{ ConslidatedStats?ConslidatedStats.winPercent : "-"}</div>winPercent
         </div>
       </div>
       <div className={styles.card}>
@@ -78,22 +78,24 @@ const Cards = () => {
         <div className={styles.cardBody}>
           <div className={styles.matchInfo}>
             <div className={styles.team}>
-              <div className={styles.teamLogo}>PP</div>
-              <div>Pitch Pirates</div>
+              <div className={styles.teamLogo}>{ScoreCard?ScoreCard[0].AteamShortName: "-"}</div>
+
+              <div>{ScoreCard?ScoreCard[0].AteamName: "-"}</div>
             </div>
-            <div className={styles.score}>181/7 (24.0/25 Ov)</div>
+            <div className={styles.score}>{ScoreCard?ScoreCard[0].matchScore[0].totalRun: "-"}/{ScoreCard?ScoreCard[0].matchScore[0].totalWicket: "-"}({ScoreCard?ScoreCard[0].matchScore[0].oversPlayed: "-"}/{ScoreCard?ScoreCard[0].matchScore[0].overs: "-"})</div>
           </div>
           <div className={styles.vs}>vs</div>
           <div className={styles.matchInfo}>
             <div className={styles.team}>
-              <div className={styles.teamLogo}>SC</div>
-              <div>Shivoham CC</div>
+              <div className={styles.teamLogo}>{ScoreCard?ScoreCard[0].BteamShortName: "-"}</div>
+              <div>{ScoreCard?ScoreCard[0].BteamName: "-"}</div>
             </div>
-            <div className={styles.score}>179/6 (25.0/25 Ov)</div>
+            <div className={styles.score}>{ScoreCard?ScoreCard[0].matchScore[1].totalRun: "-"}/{ScoreCard?ScoreCard[0].matchScore[1].totalWicket: "-"}({ScoreCard?ScoreCard[0].matchScore[1].oversPlayed: "-"}/{ScoreCard?ScoreCard[0].matchScore[1].overs: "-"})</div>
           </div>
           <div className={styles.location}>
             <div className={styles.locationIcon}></div>
-            <div>22yards - kcg floodlights ground omr Chennai</div>
+            <div>{ScoreCard?ScoreCard[0].ground: "-"}</div>
+
           </div>
         </div>
       </div>

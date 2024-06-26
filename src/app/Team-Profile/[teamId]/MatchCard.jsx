@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import styles from './matchcard.module.css';
 import { FaLocationDot } from "react-icons/fa6";
 
-const Matchcard = ({ match }) => {
-  console.log(match);
+const Matchcard = ({ match,teamMatchCard=false }) => {
+  // console.log(match);
   const date = new Date(match[1].matchDateTime);
   const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   return (
@@ -20,6 +20,7 @@ const Matchcard = ({ match }) => {
         <div>RESULT</div>
       </div>
       <div style={{background: "grey", color:"white"}}><h4 style={{marginLeft:"50px"}}>{match[1].matchResult}</h4></div>
+      {teamMatchCard?<div>TEamMatchCard</div>: null}
       <div className={styles.cardBody}>
         <div className={styles.matchInfo}>
           <div className={styles.team}>

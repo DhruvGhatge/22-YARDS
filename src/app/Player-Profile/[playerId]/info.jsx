@@ -1,5 +1,5 @@
 export default function Info({data}){
-    console.log("data", data)
+    // console.log("data", data)
     return(
         <>
         <div style={{marginRight: "120px", marginLeft: "120px", marginTop: "25px", marginBottom: "50px"}}>
