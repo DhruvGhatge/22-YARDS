@@ -1,8 +1,9 @@
 // Matchcard.js
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './matchcard.module.css';
 import { FaLocationDot } from "react-icons/fa6";
+import styles from './matchcard.module.css'
+
 
 const Matchcard = ({ match,teamMatchCard=false }) => {
   // console.log(match);
@@ -10,39 +11,42 @@ const Matchcard = ({ match,teamMatchCard=false }) => {
   const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   return (
 
-    <div className={styles.card}>
-      <div className={styles.cardHeaderGreen}>
-        <div className={styles.headerLeft}>
-          <div>{match.date}</div>
-          <div>SCOREBOOK</div>
+    <div class="card">
+    <div class="card-header">
+        <div class="header-left">
+            <span class="date">Fri, 22-Mar</span>
+            <span class="time">10:00 PM</span>
         </div>
-        <div>{timeString}</div>
-        <div>RESULT</div>
-      </div>
-      <div style={{background: "grey", color:"white"}}><h4 style={{marginLeft:"50px"}}>{match[1].matchResult}</h4></div>
-      {teamMatchCard?<div>TEamMatchCard</div>: null}
-      <div className={styles.cardBody}>
-        <div className={styles.matchInfo}>
-          <div className={styles.team}>
-            <div className={styles.teamLogo}>{match[1].AteamShortName}</div>
-            <div>{match[1].AteamName}</div>
-          </div>
-          <div className={styles.score}>{match[1].matchScore[0].totalRun}/{match[1].matchScore[0].totalWicket} ({match[1].matchScore[0].oversPlayed}/{match[1].matchScore[0].overs})</div>
-        </div>
-        <div className={styles.vs}>vs</div>
-        <div className={styles.matchInfo}>
-          <div className={styles.team}>
-            <div className={styles.teamLogo}>{match[1].BteamShortName}</div>
-            <div>{match[1].BteamName}</div>
-          </div>
-          <div className={styles.score}>{match[1].matchScore[1].totalRun}/{match[1].matchScore[1].totalWicket} ({match[1].matchScore[1].oversPlayed}/{match[1].matchScore[1].overs})</div>
-        </div>
-        <div className={styles.location}>
-          <div><FaLocationDot /></div>
-          <div>{match[1].ground}</div>
-        </div>
-      </div>
+        <span class="result">Result</span>
     </div>
+    <div class="card-content">
+        <div class="match">
+            <div class="team">
+                <div class="team-logo team-logo-mb">MB</div>
+                <div class="team-info">
+                    <span class="team-name">Madras Bulldogs</span>
+                    <span class="score">159/7 (20.0 Ov)</span>
+                </div>
+            </div>
+            <div class="versus">vs</div>
+            <div class="team">
+                <div class="team-logo team-logo-gs">GS</div>
+                <div class="team-info">
+                    <span class="team-name">Game Swingers</span>
+                    <span class="score">160/4 (18.1 Ov)</span>
+                </div>
+            </div>
+        </div>
+        <div class="location">
+            <span class="location-icon">📍</span>
+            <span>22yards - kcg floodlights ground omr, Chennai</span>
+        </div>
+    </div>
+    <div class="card-footer">
+        Game Swingers won by 6 wickets
+    </div>
+</div>
+
   );
 };
 
